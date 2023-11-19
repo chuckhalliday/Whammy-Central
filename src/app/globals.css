@@ -26,7 +26,7 @@
 }
 
 .hero__title {
-  @apply 2xl:text-[66px] sm:text-[58px] text-[44px] font-extrabold;
+  @apply 2xl:text-[66px] sm:text-[58px] text-[40px] font-extrabold;
   margin-bottom: 10px;
 }
 
@@ -68,7 +68,7 @@
 
 .logout {
   float: right;
-  margin-bottom: 2px;
+  margin-right: 5px;
 }
 
 .nav-item {
