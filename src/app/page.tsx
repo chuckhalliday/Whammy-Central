@@ -48,14 +48,14 @@ export default function Home() {
     <div>
       {authenticated ? (
       <main className="overflow-hidden">
+        <button className="logout button red" onClick={logout}>Log Out</button>
         <Hero />
-        <div className="container">
+        <div>
           <Tabs />
-          <button onClick={logout}>Log Out</button>
         </div>
       </main>
       ) : (
-        <button onClick={login}>Log In with Google</button>
+        <button className="login button lightgreen" onClick={login}>Log In with Google</button>
       )}
     </div>
   )
