@@ -22,17 +22,51 @@
 
 .hero {
   @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
+  margin-top: 5px;
 }
 
 .hero__title {
   @apply 2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .hero__subtitle {
   @apply text-[27px] text-black-100 font-light mt-5;
 }
 
+.button {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  color: black;
+  width: 70px;
+  line-height: 2;
+  border-radius: 4px;
+  font-weight: 700;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #4281b2;
+  }
+}
+
+.red {
+  background-color: rgb(225, 44, 44);
+}
+
+.lightgreen {
+  background-color: rgb(71, 182, 71);
+}
+
+.login {
+  margin: 40%;
+  width: 160px;
+}
+
+.logout {
+  float: right;
+  margin-bottom: 2px;
+}
 
 .nav-item {
   padding: 20px;
