@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = 'https://bpyktwagkbpnqtwlekfa.supabase.co'
@@ -13,12 +13,12 @@ const Songs = () => {
     .select()
     if (songs) {
       setUserSongs(songs)
-    } else {
-      return []
     }
   }
 
-  loadSongs()
+  useEffect(() => {
+    loadSongs();
+  }, []);
 
   return (
     <div>

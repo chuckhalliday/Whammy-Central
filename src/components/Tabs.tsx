@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import Songs from './Songs';
-import Artists from './Artists';
-import Profile from './Profile';
+import { Songs, Profile, Artists } from './index'
 
 const Tabs = () => {
   let [active, setActive] = useState(1)

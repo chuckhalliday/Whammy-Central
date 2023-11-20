@@ -82,6 +82,11 @@
   margin-right: 15px;
 }
 
+.text-box {
+  background-color: white;
+  margin: 10px;
+}
+
 .nav-item {
   padding: 20px;
 }
