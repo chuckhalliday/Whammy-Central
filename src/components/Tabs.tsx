@@ -1,23 +1,28 @@
-import React from "react";
+import { useState } from 'react';
+import Songs from './Songs';
+import Artists from './Artists';
+import Profile from './Profile';
 
 const Tabs = () => {
+  let [active, setActive] = useState(1)
   return (
-    <ul className='flex-between nav-tabs'>
-      <li className='nav-item'>
-        <p className='nav-link mb-0 active'>Profile</p>
+    <div>
+      <ul className="flex-between nav-tabs">
+      <li className="nav-item">
+        <button className={active === 1 ? "nav-link mb-0 active" : "nav-link mb-0"} onClick={() => setActive(1)}>Profile</button>
       </li>
-      <li className='nav-item'>
-        <a target='_blank' rel='noopener noreferrer' className='nav-link mb-0'>
-          Songs
-        </a>
+      <li className="nav-item">
+        <button className={active === 2 ? "nav-link mb-0 active" : "nav-link mb-0"} onClick={() => setActive(2)}>Songs</button>
       </li>
-      <li className='nav-item'>
-        <a target='_blank' rel='noopener noreferrer' className='nav-link mb-0'>
-          People
-        </a>
+      <li className="nav-item">
+        <button className={active === 3 ? "nav-link mb-0 active" : "nav-link mb-0"} onClick={() => setActive(3)}>Artists</button>
       </li>
     </ul>
-  );
-};
+    {active === 1 && <Profile />}
+    {active === 2 && <Songs />}
+    {active === 3 && <Artists />}
+  </div>
+  )
+}
 
 export default Tabs;
