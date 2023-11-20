@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { React, useState } from 'react';
 import Songs from './Songs';
 import Artists from './Artists';
 import Profile from './Profile';
@@ -25,4 +25,4 @@ const Tabs = () => {
   )
 }
 
-export default Tabs
+export default Tabs;
