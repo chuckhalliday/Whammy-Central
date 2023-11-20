@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { useState } from 'react';
 import Songs from './Songs';
 import Artists from './Artists';
 import Profile from './Profile';
