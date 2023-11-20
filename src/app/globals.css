@@ -22,7 +22,11 @@
 
 .hero {
   @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
-  margin-top: 5px;
+  margin: 1em;
+}
+
+.hero img {
+  border-radius: 10px;
 }
 
 .hero__title {
