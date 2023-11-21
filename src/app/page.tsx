@@ -2,45 +2,27 @@
 
 import { useState, useEffect } from "react";
 import { Hero, Tabs } from "@/components";
-import { createClient } from "@supabase/supabase-js";
-
-const supabaseUrl = 'https://bpyktwagkbpnqtwlekfa.supabase.co'
-const supabase = createClient(supabaseUrl, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJweWt0d2Fna2JwbnF0d2xla2ZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDAyMDIxODEsImV4cCI6MjAxNTc3ODE4MX0.J0yA4SnftZnw7zHpKX8QCZIIMFin49R5fPjxJMAGiow')
+import { checkAuthentication, authenticate, signOut } from "@/supabase";
 
 export default function Home() {
   const [authenticated, setAuthenticated] = useState(false);
 
+  useEffect(() => {
+    checkAuthentication().then(status => {
+      setAuthenticated(status)
+    });
+  }, []);
+
   const login = async () => {
     if (!authenticated) {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          queryParams: {
-            access_type: 'offline',
-            prompt: 'consent',
-          },
-        },
-      });
-      if (!error) {
-        setAuthenticated(true);
-      }
+      authenticate().then(status => {
+        setAuthenticated(status)
+      })
     }
   };
 
-  useEffect(() => {
-    const checkAuthentication = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-      if (session) {
-        setAuthenticated(true);
-      }
-    };
-
-    checkAuthentication();
-  }, []);
-
-
   const logout = async () => {
-    let { error } = await supabase.auth.signOut()
+    signOut()
     setAuthenticated(false)
   }
   
