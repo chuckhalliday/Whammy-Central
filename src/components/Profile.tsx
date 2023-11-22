@@ -19,7 +19,7 @@ const Profile = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <label>
-          Enter your preferred name:
+          Enter your artist moniker:
           <input
             className='text-box'
             type="text"

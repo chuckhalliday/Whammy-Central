@@ -12,9 +12,11 @@ const Artists = () => {
 
   return (
     <div>
-    <ul>
+    <ul className="data-list">
       {users.map((user) => (
-        <li >{user.name ? user.name : user.email}</li>
+        <li key={user.id} className='data-list-item flex-center'>
+          <button>{user.name ? user.name : user.email}</button>
+        </li>
       ))}
     </ul>
   </div>
