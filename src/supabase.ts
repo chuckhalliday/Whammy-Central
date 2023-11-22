@@ -10,7 +10,7 @@ export const checkAuthentication = async () => {
     } else {
       return false
     }
-  };
+};
 
 export const authenticate = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
@@ -21,13 +21,13 @@ export const authenticate = async () => {
             prompt: 'consent',
           },
         },
-      });
-      if (!error) {
-        return true;
-      } else {
-        return false
-      }
+    });
+    if (!error) {
+      return true;
+    } else {
+      return false
     }
+}
 
 export const signOut = async () => {
     let { error } = await supabase.auth.signOut()
@@ -40,7 +40,7 @@ export const getCurrentUser = async () => {
     } else {
       return ''
     }
-  }
+}
 
 export const updateUser = async (artistName: string, user: string) => {
     const { data, error } = await supabase
@@ -59,7 +59,7 @@ export const loadUsers = async () => {
     } else {
       return []
     }
-  }
+}
 
 export const loadSongs = async () => {
     let { data: songs, error } = await supabase
@@ -70,4 +70,4 @@ export const loadSongs = async () => {
     } else {
       return []
     }
-  }
+}

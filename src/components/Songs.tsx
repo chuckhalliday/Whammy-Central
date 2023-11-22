@@ -12,9 +12,11 @@ const Songs = () => {
 
   return (
     <div>
-      <ul>
+      <ul className='data-list'>
         {userSongs.map((song) => (
-          <li key={song.id}>{song.title}</li>
+          <li key={song.id} className="data-list-item flex-center">
+            <button>{song.title}</button>
+          </li>
         ))}
       </ul>
     </div>
