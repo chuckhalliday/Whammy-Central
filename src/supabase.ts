@@ -1,4 +1,3 @@
-import { ChangeEvent, FormEvent } from 'react';
 import { createClient } from '@supabase/supabase-js'
 import { v4 as uuidv4 } from 'uuid';
 
@@ -90,15 +89,15 @@ export const createSong = async (user: string, title: string) => {
 
 export const uploadFile = async (file: File) => {
   let userId: string = await getCurrentUser()
-  let name = uuidv4()
-  let path = userId + "/" + name
+  let fileName = uuidv4()
+  let path = userId + "/" + fileName
 
-    const { data, error } = await supabase
-    .storage
-    .from('song_files')
-    .upload(path, file)
-    console.log(path)
-    return path
+  const { data, error } = await supabase
+  .storage
+  .from('song_files')
+  .upload(path, file)
+
+  return path
 }
 
 export const createTrack = async (song: string, destination: string, user: string) => {
