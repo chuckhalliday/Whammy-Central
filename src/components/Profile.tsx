@@ -44,33 +44,31 @@ const Profile = () => {
   return (
     <div>
       <form onSubmit={handleNameSubmit}>
-        <label>
-          Enter your artist moniker:
+        <label> Band/artist name: </label>
           <input
             className='text-box'
             type="text"
             value={artistName}
             onChange={(e) => handleInputChange(e, 'artist')}
-          />
-        </label>
+          />       
         <button className='button lightgreen' type="submit">Submit</button>
       </form>
-      <h2>Create new song:</h2>
       <form onSubmit={handleSongSubmit}>
-        <label>
-          Song title:
+      <h2>Create new song: </h2>
+        <label> Song title: </label>
           <input
             className='text-box'
             type="text"
             value={title}
             onChange={(e) => handleInputChange(e, 'title')}
           />
+          <br/>
           <input
             type="file"
-            accept="audio/mpeg"
+            accept="audio/*"
+            value={destination}
             onChange={(e) => handleInputChange(e, 'destination')}
           />
-        </label>
         <button className='button lightgreen' type="submit">Submit</button>
       </form>
     </div>
