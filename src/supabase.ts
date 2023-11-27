@@ -1,4 +1,6 @@
+import { ChangeEvent, FormEvent } from 'react';
 import { createClient } from '@supabase/supabase-js'
+import { v4 as uuidv4 } from 'uuid';
 
 const supabaseUrl = 'https://bpyktwagkbpnqtwlekfa.supabase.co'
 const supabase = createClient(supabaseUrl, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJweWt0d2Fna2JwbnF0d2xla2ZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDAyMDIxODEsImV4cCI6MjAxNTc3ODE4MX0.J0yA4SnftZnw7zHpKX8QCZIIMFin49R5fPjxJMAGiow')
@@ -70,4 +72,40 @@ export const loadSongs = async () => {
     } else {
       return []
     }
+}
+
+export const createSong = async (user: string, title: string) => {
+  const { data, error } = await supabase
+  .from('songs')
+  .insert([
+    { user: user, title: title },
+  ])
+  .select()
+  if (data){
+    return data[0].id
+  } else {
+    return ''
+  }
+}
+
+export const uploadFile = async (file: File) => {
+  let userId: string = await getCurrentUser()
+  let name = uuidv4()
+  let path = userId + "/" + name
+
+    const { data, error } = await supabase
+    .storage
+    .from('song_files')
+    .upload(path, file)
+    console.log(path)
+    return path
+}
+
+export const createTrack = async (song: string, destination: string, user: string) => {
+  const { data, error } = await supabase
+  .from('tracks')
+  .insert([
+    { song_id: song, file_path: destination, user_id: user },
+  ])
+  .select()
 }
