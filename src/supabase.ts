@@ -108,3 +108,16 @@ export const createTrack = async (song: string, destination: string, user: strin
   ])
   .select()
 }
+
+export const selectTracksBySong = async(song: number) => {
+  let { data: tracks, error } = await supabase
+  .from('tracks')
+  .select("*")
+  // Filters
+  .eq('song_id', song)
+  if (tracks) {
+    return tracks
+  } else {
+    console.log(error)
+  }
+}

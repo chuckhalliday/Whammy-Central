@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react'
+import React, { useState, ChangeEvent, FormEvent } from 'react'
 import { getCurrentUser, updateUser, createSong, uploadFile, createTrack } from '@/supabase';
 
 const Profile = () => {
